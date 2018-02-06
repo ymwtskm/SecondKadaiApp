@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
+    var name: String = ""
+    
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +24,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController:NextViewController = segue.destination as! NextViewController
+        nextViewController.name = textField.text!
+    }
+    
+    //戻ります
+    @IBAction func back(_ segue: UIStoryboardSegue){
+        
+    }
 
 }
 
